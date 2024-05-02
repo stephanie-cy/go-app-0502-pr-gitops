@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: go-app-0502-pr
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: go-app-0502-pr 
+  name: go-app-0502-pr
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: go-app-0502-pr
+    weight: 100 
